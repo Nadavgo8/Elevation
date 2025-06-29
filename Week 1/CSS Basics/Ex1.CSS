@@ -1,0 +1,18 @@
+#first {
+color: aquamarine;
+font-size: larger;
+font: Arial;
+}
+
+#second{
+    color: red;
+    font-size: large;
+    font: 1em sans-serif;
+}
+
+#third{
+    color: chartreuse;
+    font-size:x-large;
+    font: italic small-caps bold 12px/30px Georgia, serif
+
+}
