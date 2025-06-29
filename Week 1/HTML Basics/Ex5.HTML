@@ -1,0 +1,46 @@
+<head>
+<title>Contact</title>
+</head>
+<body>
+    <form action="">
+        <h1>Contact us</h1>
+
+        <fieldset > <legend>Personal info</legend>
+            <label for="name"><strong>Name: </strong></label>
+            <div><input type="text"  placeholder="name" id="name" required></div>
+            <br><label for="email"><strong>Email: </strong> </label>
+            <div><input type="text" placeholder="your@Email.com" id="email" required></div>
+            <br><label for="Phone"><strong>Phone: </strong></label>
+            <div><input type="text"  placeholder="(555) 123-4567" id="phone" required></div>
+            <p>Gender</p>
+            <input type="radio" id="Male" name="fav_language" value="Male" required>
+            <label for="Male">Male</label><br>
+            <input type="radio" id="Female" name="fav_language" value="Female">
+            <label for="Female">Female</label><br>
+            <input type="radio" id="Other" name="fav_language" value="Other">
+            <label for="Other">Other</label>
+            <br>
+        </fieldset>
+        
+    
+        <fieldset><legend> Message Details</legend>
+
+            <label for="subjects">Subject:</label>
+            <select id="subjects" name="subjects" required>
+                <option value="" disabled selected>Select subject</option>
+                <option value="Math">Math</option>
+                <option value="Physics">Physics</option>
+                <option value="Biology">Biology</option>
+                <option value="PE">PE</option>
+            </select>
+            <br><br><br>
+            <label for="message">Message:</label><br>
+            <textarea name="message" id="message" placeholder="Write message:" required></textarea>
+
+        </fieldset>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+</body>
