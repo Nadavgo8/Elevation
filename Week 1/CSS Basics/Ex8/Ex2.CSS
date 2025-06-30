@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(228, 218, 202);
+    
+}
+.main-title{
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);    color: rgb(227, 148, 3);
+}
+.title{
+    background-color: rgb(165, 190, 199);
+    border-left: 3px solid;
+    border-color: rgb(15, 111, 159);
+    color: rgb(15, 111, 159);
+    /* margin-bottom: 10px; */
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+ol,ul{
+    background-color: rgb(163, 204, 240);
+    /* margin-top: 10px; */
+    padding-left: 18px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+li strong{
+    color: rgb(208, 84, 1);
+}
