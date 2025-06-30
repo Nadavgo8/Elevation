@@ -1,0 +1,46 @@
+/* body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://barramundi.co.il/wp-content/uploads/2019/02/SMALL_BARAMUNDI_122793.jpg');
+}
+div{
+    position:absolute;
+    width: 400px;
+    padding: 10px;
+}
+.trans-title{
+    position: absolute;
+    background-color: rgba(128, 0, 128, 0.6); 
+    color: rgba(0, 0, 0, 0.5); 
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.reg-title{
+    position: absolute;
+
+    background-color: rgba(128, 0, 128, 1); 
+    color: black;
+    padding: 15px;
+} */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://barramundi.co.il/wp-content/uploads/2019/02/SMALL_BARAMUNDI_122793.jpg');
+}
+
+.trans-title {
+    background-color: rgba(128, 0, 128, 0.6); 
+    color: rgba(0, 0, 0, 0.5); 
+    padding: 15px;
+    width: 400px;
+}
+
+.reg-title {
+    background-color: rgba(128, 0, 128, 1); 
+    color: black;
+    padding: 15px;
+    width: 400px;
+}
