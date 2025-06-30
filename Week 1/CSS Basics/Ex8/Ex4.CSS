@@ -1,0 +1,37 @@
+body{
+    background-color: black;
+    color: white;
+    align-items: center;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+table{
+    margin: auto;
+    border: 2px solid mediumseagreen;
+    border-collapse: collapse;
+
+}
+thead{
+    color: mediumseagreen;
+}
+caption{
+    color: yellow;
+}
+.title{
+    color: mediumseagreen;
+    text-decoration: underline;
+
+}
+td:nth-child(1) {
+    color: #eb6421; /* orange */
+    font-weight: bold;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #222;
+}
+th, td {
+    padding: 5px;
+    border: 1px solid #444;
+}
+  
