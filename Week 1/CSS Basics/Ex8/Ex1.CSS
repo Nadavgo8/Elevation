@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 30px;
+  }
+  
+  .main-title {
+    text-align: center;
+    font-weight: bold;
+    color: #1a1a1a;
+    text-decoration: underline;
+  }
+  
+  .section-title {
+    color: #0077cc;
+    font-weight: bold;
+  }
+  
+  .highlight-pink {
+    color: purple;
+    font-weight: bold;
+  }
+  
+  .highlight-green {
+    color: #2e7d32;
+    font-style: italic;
+  }
+  
+  .blue-line {
+    border: none;
+    border-top: 2px solid #00bcd4;
+    margin: 10px 0;
+  }
+  
+  .gray-line {
+    border: none;
+    border-top: 2px solid #888;
+    margin: 10px 0;
+  }
+  
