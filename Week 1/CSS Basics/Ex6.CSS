@@ -1,0 +1,8 @@
+.pic {
+    width: 300px;     /* or any size you want */
+    height: auto;     /* keeps the image's aspect ratio */
+    border-radius: 10px; /* optional: for rounded corners */
+}
+p{
+    font-size:larger
+}
