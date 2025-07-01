@@ -1,0 +1,21 @@
+.square{
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    /* opacity: 0.5; */
+}
+.hor-line, .ver-line{
+    background-color: red;
+    position: absolute;
+}
+.hor-line{
+    top: 30px;
+    width: 100%;
+    height: 5%;
+}
+.ver-line{
+    left: 15px;
+    height: 100%;
+    width: 5%;
+}
