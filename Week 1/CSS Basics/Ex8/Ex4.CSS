@@ -24,7 +24,7 @@ caption{
 
 }
 td:nth-child(1) {
-    color: #eb6421; /* orange */
+    color: #eb6421;
     font-weight: bold;
   }
   tbody tr:nth-child(even) {
