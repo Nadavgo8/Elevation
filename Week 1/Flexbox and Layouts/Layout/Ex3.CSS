@@ -1,0 +1,21 @@
+.flex-container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.side{
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle{
+    background-color: rgb(54, 167, 237);
+    border-radius: 100px;
+    /* margin: auto; */
+    height: 50px;
+    width: 50px;
+}
