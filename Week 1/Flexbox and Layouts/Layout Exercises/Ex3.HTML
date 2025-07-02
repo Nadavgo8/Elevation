@@ -1,14 +1,75 @@
 <head>
+  <title> ex3</title>
 <link rel="stylesheet" href="Ex3.CSS">
 </head>
 <body>
-  <div class="flex-container">
-    <div class="side">
-      <div class="circle"></div>
-    </div>
-    <div class="side">
-      <div class="text"> bla bla</div>
-    </div>
+  <div class="form-wrapper">
+    <form class="contact-form">
+      <div class="title">
+        <h1>Contact Form</h1>
+        <p>Get in touch with us</p>
+      </div>
+  
+      <!-- Name fields -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" />
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" />
+        </div>
+      </div>
+  
+      <!-- Subject and Priority -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option>Select a topic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select id="priority">
+            <option>Low</option>
+          </select>
+        </div>
+      </div>
+  
+      <!-- Message -->
+      <div class="form-row">
+        <div class="form-group full-width">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Tell us how we can help..."></textarea>
+        </div>
+      </div>
+  
+      <!-- Preferences -->
+      <div class="form-row">
+        <label>Contact Preferences</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" /> Email Updates</label>
+          <label><input type="checkbox" /> Phone Follow-up</label>
+          <label><input type="checkbox" /> Newsletter</label>
+        </div>
+      </div>
+  
+      <!-- Buttons -->
+      <div class="form-row ">
+        <button type="button" class="secondary">Save Draft</button>
+        <button type="submit" class="primary">Send Message</button>
+      </div>
+    </form>
   </div>
-
+  
 </body>
