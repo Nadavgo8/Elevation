@@ -1,0 +1,54 @@
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #aabbcc;
+  padding: 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.flex-top {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 620px;
+  margin-bottom: 70px;
+}
+
+.text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.flex-row {
+  display: flex;
+  gap: 20px;
+}
+
+.big-square {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(55, 127, 229);
+}
+
+.flex-squares {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  align-content: space-between; 
+}
+
+.square {
+  width: 140px;
+  height: 140px;
+  background-color: rgb(55, 127, 229);
+}

@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    border: 1px solid black;
+}
+.flex-item1{
+    background-color: lightskyblue;
+    margin: 2px;
+    flex-grow: 1;
+}
+.flex-item2{
+    background-color: lightskyblue;
+    margin: 2px;
+}
+#first{
+    flex-grow: 1;
+}
+#second, #third{
+    flex-grow: 2;
+}
