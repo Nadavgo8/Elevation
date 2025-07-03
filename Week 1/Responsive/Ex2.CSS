@@ -1,19 +1,28 @@
-.container{
-    display: flex;
-    border: 1px solid black;
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(90deg, #9fa3ff, #5358b1);
+
 }
-.flex-item1{
-    background-color: lightskyblue;
-    margin: 2px;
-    flex-grow: 1;
+.header{
+    font-size: 48px;
+    text-align: center;
 }
-.flex-item2{
-    background-color: lightskyblue;
-    margin: 2px;
+.text{
+    font-size: 18px;
 }
-#first{
-    flex-grow: 1;
+@media(max-width:900px){
+    .header{
+        font-size: 36px;
+    }
+    .text{
+        font-size: 16px;
+    } 
 }
-#second, #third{
-    flex-grow: 2;
+@media(max-width:600px){
+    .header{
+        font-size: 24px;
+    }
+    .text{
+        font-size: 14px;
+    } 
 }
