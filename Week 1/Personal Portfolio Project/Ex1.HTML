@@ -1,0 +1,121 @@
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Doe Portfolio</title>
+  <link rel="stylesheet" href="Ex1.CSS" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="name">John Doe</div>
+    <div class="hamburger" id="hamburger">☰</div>
+    <nav class="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section id="home" class="home">
+    <div class="home-description">
+      <h1>Full-Stack Developer</h1>
+      <p>I create beautiful and functional web experiences using modern technologies. Passionate about clean code and user-centered design.</p>
+      <button class="contact-btn">Get in Touch</button>
+    </div>
+    <div class="home-photo">
+      <img src="profile.jpg" alt="Profile photo" class="profile-img">
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I'm a passionate full-stack developer with a keen eye for design and a love for creating seamless user experiences. With expertise in HTML, CSS, and JavaScript, I bring ideas to life through clean, efficient code.</p>
+    </div>
+    <div class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>MongoDB</li>
+        <li>Java</li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-img">Project Image</div>
+        <h3>E-commerce Website</h3>
+        <p>A responsive online store built with HTML, CSS, and JavaScript featuring product catalog and shopping cart.</p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <div class="project-img">Project Image</div>
+        <h3>Weather App</h3>
+        <p>A clean weather application that delivers current conditions and forecasts with a beautiful interface.</p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+      <div class="project-card">
+        <div class="project-img">Project Image</div>
+        <h3>Task Manager</h3>
+        <p>A productivity app for managing daily tasks with drag-and-drop functionality and local storage.</p>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-container">
+      <div class="contact-form">
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your email" required>
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Your message" required></textarea>
+          <button type="submit" class="contact-btn">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <p><strong>Contact Information</strong></p>
+        <p>📧 <a href="mailto:19nadav99@gmail.com">19nadav99@gmail.com</a></p>
+        <p>📞 <a href="tel:+15551234567">(+972) 584009905</a></p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/nadav-gonen/" target="_blank" class="social-btn" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="white" d="M100.28 448H7.4V148.9h92.88zm-46.44-340C24.29 108 0 83.7 0 53.9 0 24.1 24.29 0 53.84 0 83.4 0 108 24.1 108 53.9c0 29.8-24.6 54.1-54.16 54.1zM447.9 448h-92.68V302.4c0-34.7-12.4-58.4-43.35-58.4-23.6 0-37.6 15.9-43.8 31.3-2.3 5.5-2.9 13.2-2.9 21V448h-92.68s1.2-269.2 0-297H266v42.1c-.2.3-.5.7-.7 1h.7v-1c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.6 39.8 106.6 125.2V448z"/></svg>
+          </a>
+          <a href="https://github.com/Nadavgo8" target="_blank" class="social-btn" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="white" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-2.9 0-5.2-1.6-5.2-3.6 0-2 2.3-3.6 5.2-3.6 2.9 0 5.2 1.6 5.2 3.6zm-33.4-6.7c-.7 1.6.5 3.5 2.7 4.3 2.2.8 4.7 0 5.4-1.6.7-1.6-.5-3.5-2.7-4.3-2.2-.8-4.8 0-5.4 1.6zm44.2-1.1c-2.9.8-4.7 2.9-4.1 4.9.6 2 3.4 3 6.3 2.2 2.9-.8 4.7-2.9 4.1-4.9-.6-2-3.4-3-6.3-2.2zM244 8C108.9 8 0 116.9 0 252c0 108.9 70.7 201.3 169.1 234 12.3 2.3 16.8-5.4 16.8-12v-42.6c-68.8 15-83.4-33.2-83.4-33.2-11.2-28.6-27.4-36.2-27.4-36.2-22.4-15.3 1.7-15 1.7-15 24.8 1.7 37.9 25.5 37.9 25.5 22 37.7 57.9 26.8 72 20.5 2.2-15.9 8.6-26.8 15.6-33-54.9-6.2-112.6-27.4-112.6-121.9 0-26.9 9.6-48.9 25.3-66.2-2.5-6.2-11-31.1 2.4-64.8 0 0 20.7-6.6 67.8 25.2 19.7-5.5 40.9-8.2 62-8.3 21.1.1 42.3 2.8 62 8.3 47.1-31.8 67.8-25.2 67.8-25.2 13.4 33.7 4.9 58.6 2.4 64.8 15.7 17.3 25.3 39.3 25.3 66.2 0 94.7-57.8 115.6-112.9 121.7 8.8 7.6 16.6 22.5 16.6 45.4v67.3c0 6.6 4.5 14.3 16.9 12C425.3 453.3 496 361 496 252 496 116.9 387.1 8 252 8z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2025 Nadav Gonen. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("hamburger").addEventListener("click", function () {
+      document.body.classList.toggle("menu-open");
+    });
+  </script>
+</body>
+</html>
