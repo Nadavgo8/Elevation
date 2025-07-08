@@ -71,3 +71,38 @@ for (p of people_info) {
 }
 
 //ex2
+const story =
+  "In the beginning there was light. Then there were wolves. Finally there was a big fire. Ultimately, Shelob the wolf-master put out the fire with her feet. But until then, the fire caused one heck of a lot of damage.";
+const specialChars = [",", ".", '"', "'", "?", "!", ";"];
+const wordCounts = {};
+
+function cleanText(sentence) {
+  let cleaned = sentence.toLowerCase();
+
+  // Remove all special characters from the string
+  for (let char of specialChars) {
+    cleaned = cleaned.split(char).join("");
+  }
+
+  // Split into words and filter out empty strings
+  return cleaned.split(" ").filter((word) => word.trim() !== "");
+}
+
+function addToCounter(word) {
+  if (wordCounts[word]) {
+    wordCounts[word]++;
+  } else {
+    wordCounts[word] = 1;
+  }
+}
+
+function countWords(sentence) {
+  const words = cleanText(sentence);
+  for (let word of words) {
+    addToCounter(word);
+  }
+}
+
+// Run it
+countWords(story);
+console.log(wordCounts);
