@@ -9,6 +9,14 @@ class Exercises {
     arr.splice(0, numItemsToRemove);
     return arr;
   }
+  //should return a clean string without these symbols: "!", "#", ".", ",", "'"
+  simplify(str) {
+    let symbols = ["!", "#", ".", ",", "'"];
+    return str
+      .split("")
+      .filter((c) => symbols.indexOf(c) == -1)
+      .join("");
+  }
 }
 
 module.exports = Exercises;
