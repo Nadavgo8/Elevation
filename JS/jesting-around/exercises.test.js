@@ -1,17 +1,31 @@
 const ex = require("./exercises");
 let exercise = new ex();
 
+test("returns error for non numbers", () => {
+  expect(() => exercise.isEven()).toThrow("Input must be a number");
+  expect(() => exercise.isEven("")).toThrow("Input must be a number");
+  expect(() => exercise.isEven("yes")).toThrow("Input must be a number");
+  expect(() => exercise.isEven(true)).toThrow("Input must be a number");
+});
 test("returns true for even numbers", () => {
   expect(exercise.isEven(4)).toBeTruthy();
 });
-
 test("returns false for odd numbers", () => {
   expect(exercise.isEven(3)).toBeFalsy();
+});
+test("returns error for non array", () => {
+  const arr = 14;
+  expect(() => exercise.removeAtLeastOne(arr)).toThrow(
+    "Input must be an array"
+  );
 });
 test("removes at least one element", () => {
   const arr = [1, 2, 3, 4, 5, 6];
   const afterFunc = exercise.removeAtLeastOne([1, 2, 3, 4, 5, 6]);
   expect(afterFunc.length).toBeLessThan(arr.length);
+});
+test("returns error for non string", () => {
+  expect(() => exercise.simplify(3)).toThrow("Input must be a string");
 });
 test("returns a simplified string", () => {
   const str = "Hi! My #name# is, my'' name is.";
@@ -35,4 +49,7 @@ test("returns true when more true", () => {
 test("returns false when more false", () => {
   const moreFalse = [false];
   expect(exercise.validate(moreFalse)).toBeFalsy();
+});
+test("throws error when no parameter is passed", () => {
+  expect(() => exercise.validate()).toThrow("Input must be an array");
 });
