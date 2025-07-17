@@ -18,3 +18,21 @@ test("returns a simplified string", () => {
   const cleanStr = exercise.simplify(str);
   expect(cleanStr).not.toMatch(/[!#.,']/);
 });
+test("no boolean returns message", () => {
+  const noBool = [1, 2, 3, 4, 5, "true"];
+  expect(exercise.validate(noBool)).toEqual({
+    error: "Need at least one boolean",
+  });
+});
+test("returns false when true and false are equal", () => {
+  const equalTF = [1, 2, true, false, 3, 4, false, 5, true];
+  expect(exercise.validate(equalTF)).toBeFalsy();
+});
+test("returns true when more true", () => {
+  const moreTrue = [true, false, false, 1, 2, 3, true, false, 4, 5, true, true];
+  expect(exercise.validate(moreTrue)).toBeTruthy();
+});
+test("returns false when more false", () => {
+  const moreFalse = [false];
+  expect(exercise.validate(moreFalse)).toBeFalsy();
+});

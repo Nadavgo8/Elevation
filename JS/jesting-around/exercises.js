@@ -17,6 +17,17 @@ class Exercises {
       .filter((c) => symbols.indexOf(c) == -1)
       .join("");
   }
+  validate(arr) {
+    const booleansArr = arr.filter((val) => typeof val === "boolean");
+
+    if (booleansArr.length === 0) {
+      return { error: "Need at least one boolean" };
+    }
+    const trueCount = booleansArr.filter((b) => b === true).length;
+    const falseCount = booleansArr.length - trueCount;
+
+    return trueCount > falseCount;
+  }
 }
 
 module.exports = Exercises;
