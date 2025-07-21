@@ -43,19 +43,28 @@ class BSNode {
     }
   }
   findNode(toFind) {
-  if (this == null) {
-    return false;
-  }
+    if (this == null) {
+      return false;
+    }
 
-  if (toFind === this.value) {
-    return true;
-  }
+    if (toFind === this.value) {
+      return true;
+    }
 
-  if (toFind > this.value) {
-    return this.rightChild ? this.rightChild.findNode(toFind) : false;
-  } else {
-    return this.leftChild ? this.leftChild.findNode(toFind) : false;
+    if (toFind > this.value) {
+      return this.rightChild ? this.rightChild.findNode(toFind) : false;
+    } else {
+      return this.leftChild ? this.leftChild.findNode(toFind) : false;
+    }
   }
+  findCommonParent(val1, val2) {
+    if (val1 < this.value && val2 < this.value) {
+      return this.leftChild.findCommonParent(val1, val2);
+    }
+    if (val1 > this.value && val2 > this.value) {
+      return this.rightChild.findCommonParent(val1, val2);
+    }
+    return this.value;
   }
 }
 
