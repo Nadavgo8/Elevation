@@ -23,24 +23,28 @@ class TrieController {
 
       switch (command) {
         case "add":
-          // TODO: Handle 'add' command
+          this.trie.addWord(argument);
+          console.log(`✓ Added '${argument}' to dictionary`);
           break;
         case "find":
-          // TODO: Handle 'find' command
+          this.trie.findWord(argument)
+            ? this.view.printFoundWord(argument)
+            : this.view.printNotFound(argument);
           break;
         case "complete":
-          // TODO: Handle 'complete' command
+          const suggestions = this.trie.predictWords(argument);
+          this.view.printSuggestions(argument, suggestions);
           break;
         case "help":
-          // TODO: Handle 'help' command
+          this.view.printHelp();
           break;
         case "exit":
-          // TODO: Handle 'exit' command
+          console.log("Goodbye!");
+          this.rl.close();
           return;
         default:
-        // TODO: Handle unknown command
+          console.log("Unknown command. Type 'help' for available commands.");
       }
-
       this.rl.prompt();
     });
   }

@@ -6,23 +6,46 @@ class AutoCompleteTrie {
   }
 
   addWord(word) {
-    // TODO: Implement addWord
+    let node = this.root;
+    for (const char of word.toLowerCase()) {
+      if (!node.children[char]) {
+        node.children[char] = new TrieNode(char);
+      }
+      node = node.children[char];
+    }
+    node.endOfWord = true;
+    node.frequency += 1;
   }
 
   findWord(word) {
-    // TODO: Implement findWord
+    let node = this.root;
+    for (const char of word.toLowerCase()) {
+      if (!node.children[char]) return false;
+      node = node.children[char];
+    }
+    return node.endOfWord;
   }
 
   predictWords(prefix) {
-    // TODO: Implement predictWords
+    let node = this._getRemainingTree(prefix.toLowerCase(), this.root);
+    const allWords = [];
+    if (node) this._allWordsHelper(prefix.toLowerCase(), node, allWords);
+    return allWords;
   }
 
   _getRemainingTree(prefix, node) {
-    // TODO: Implement _getRemainingTree
+    for (const char of prefix) {
+      if (!node.children[char]) return null;
+      node = node.children[char];
+    }
+    return node;
   }
 
   _allWordsHelper(prefix, node, allWords) {
-    // TODO: Implement _allWordsHelper
+    if (node.endOfWord) allWords.push(prefix);
+    for (const child in node.children) {
+      this._allWordsHelper(prefix + child, node.children[child], allWords);
+    }
   }
 }
 
