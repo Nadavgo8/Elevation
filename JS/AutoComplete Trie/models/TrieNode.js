@@ -1,4 +1,4 @@
-class TrieNode {
+export default class TrieNode {
   constructor(value = "") {
     this.value = value;
     this.children = {};
@@ -6,5 +6,3 @@ class TrieNode {
     this.frequency = 0;
   }
 }
-
-module.exports = TrieNode;

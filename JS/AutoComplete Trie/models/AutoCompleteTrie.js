@@ -1,6 +1,6 @@
-const TrieNode = require("./TrieNode");
+import TrieNode from "./TrieNode.js";
 
-class AutoCompleteTrie {
+export default class AutoCompleteTrie {
   constructor() {
     this.root = new TrieNode();
   }
@@ -48,5 +48,3 @@ class AutoCompleteTrie {
     }
   }
 }
-
-module.exports = AutoCompleteTrie;
