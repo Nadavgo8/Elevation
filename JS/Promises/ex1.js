@@ -13,15 +13,18 @@ function checkLuckyNumber(num) {
   });
 }
 
+  function testing(num) {
+    checkLuckyNumber(num)
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error.message));
+  }
 
-checkLuckyNumber(14)
-  .then(result => console.log(result))      // → "Lucky!"
-  .catch(error => console.error(error.message));
+  // const testing = (num) => {
+  //   checkLuckyNumber(num)
+  //     .then((result) => console.log(result))
+  //     .catch((error) => console.error(error.message));
+  // };
 
-checkLuckyNumber(10)
-  .then(result => console.log(result))      // → "Not lucky"
-  .catch(error => console.error(error.message));
-
-checkLuckyNumber(0)
-  .then(result => console.log(result))
-  .catch(error => console.error(error.message));  // → "Invalid number"
+  testing(14);
+  testing(12);
+  testing(0);
