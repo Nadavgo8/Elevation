@@ -11,7 +11,7 @@ function checkLuckyNumber(num) {
       }
     }, 800);
   });
-}
+}  
 
   function testing(num) {
     checkLuckyNumber(num)
