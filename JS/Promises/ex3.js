@@ -29,16 +29,14 @@ function calculateTotal(items) {
   // 1. Waits 200ms
   // 2. Calculates total price including 8% tax
   // 3. Resolves with { subtotal, tax, total }
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      let subtotal = 0,
-        tax = 0,
-        total = 0;
-      for (item in items) {
-        if (items[item].stock <= 0) {
-          reject(new Error(`${item} is out of stock`));
-        }
-      }
+      const subtotal = items.reduce(
+        (sum, item) => sum + inventory[item].price,
+        0
+      );
+      const tax = subtotal * 0.08;
+      const total = subtotal + tax;
       resolve({ subtotal, tax, total });
     }, 200);
   });
