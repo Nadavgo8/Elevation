@@ -48,6 +48,20 @@ function processPayment(amount) {
   // 2. 90% success rate
   // 3. Resolves with { transactionId, amount, status: 'success' }
   // 4. Rejects with payment failure error
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = Math.random() < 0.9;
+      if (success) {
+        resolve({
+          transactionId: Math.floor(Math.random() * 1000000),
+          amount,
+          status: "success",
+        });
+      } else {
+        reject(new Error("Payment failed. Please try again."));
+      }
+    }, 1500);
+  });
 }
 
 function updateInventory(items) {
@@ -55,6 +69,15 @@ function updateInventory(items) {
   // 1. Waits 300ms
   // 2. Reduces stock for each item
   // 3. Resolves with updated inventory status
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      for (const item of items) {
+        inventory[item].stock -= 1;
+      }
+      resolve(`Inventory updated for: ${items.join(", ")}`);
+    }, 300);
+  });
 }
 
 // TODO: Create a complete checkout function that:
@@ -65,22 +88,30 @@ function updateInventory(items) {
 
 function checkout(itemNames) {
   // TODO: Implement the complete checkout flow
+
+  return checkInventory(itemNames)
+    .then((validItems) => calculateTotal(validItems))
+    .then((priceInfo) => {
+      return processPayment(priceInfo.total).then((paymentResult) => {
+        return updateInventory(itemNames).then((updateMsg) => {
+          return {
+            payment: paymentResult,
+            inventory: updateMsg,
+          };
+        });
+      });
+    });
 }
 
-// checkInventory(inventory);
-checkInventory(inventory)
+// Test cases:
+checkout(["laptop", "mouse"]) // Should succeed
   .then((result) => console.log("Order success:", result))
   .catch((error) => console.log("Order failed:", error.message));
 
-// // Test cases:
-// checkout(["laptop", "mouse"]) // Should succeed
-//   .then((result) => console.log("Order success:", result))
-//   .catch((error) => console.log("Order failed:", error.message));
+checkout(["laptop", "keyboard"]) // Should fail - keyboard out of stock
+  .then((result) => console.log("Order success:", result))
+  .catch((error) => console.log("Order failed:", error.message));
 
-// checkout(["laptop", "keyboard"]) // Should fail - keyboard out of stock
-//   .then((result) => console.log("Order success:", result))
-//   .catch((error) => console.log("Order failed:", error.message));
-
-// checkout(["monitor", "mouse", "laptop"]) // Might fail at payment (10% chance)
-//   .then((result) => console.log("Order success:", result))
-//   .catch((error) => console.log("Order failed:", error.message));
+checkout(["monitor", "mouse", "laptop"]) // Might fail at payment (10% chance)
+  .then((result) => console.log("Order success:", result))
+  .catch((error) => console.log("Order failed:", error.message));
