@@ -42,9 +42,43 @@ async function getUserById(userId) {
   }
 }
 
-getUserById(3);    // ✅ Valid ID
-getUserById(4);    // ✅ Valid ID
-getUserById(3);    // ✅ Valid ID
-getUserById(9);    // ✅ Valid ID
+getUserById(3); // ✅ Valid ID
+getUserById(4); // ✅ Valid ID
+getUserById(3); // ✅ Valid ID
+getUserById(9); // ✅ Valid ID
+getUserById(999); // ❌ Invalid ID, triggers catch block
 
-getUserById(999);  // ❌ Invalid ID, triggers catch block
+async function getUserWithPosts(userId) {
+  try {
+    // Step 1: Fetch user
+    const userResponse = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+
+    if (!userResponse.ok) {
+      throw new Error("User not found");
+    }
+
+    const user = await userResponse.json();
+
+    // Step 2: Fetch posts
+    const postsResponse = await fetch(
+      `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
+    );
+
+    if (!postsResponse.ok) {
+      throw new Error("Failed to fetch posts for user");
+    }
+
+    const posts = await postsResponse.json();
+
+    // Step 3: Return combined data
+    return {
+      user,
+      posts,
+    };
+  } catch (error) {
+    console.error("Error:", error.message);
+    return null;
+  }
+}
