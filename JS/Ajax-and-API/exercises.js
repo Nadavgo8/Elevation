@@ -94,4 +94,51 @@ function fetchAllBookItems(queryType, queryValue) {
 }
 
 // fetchAllBookItems("isbn", 9789814561778);
-fetchAllBookItems("title", "How to Win Friends and Influence People");
+// fetchAllBookItems("title", "How to Win Friends and Influence People");
+
+
+
+const apiKey = "lwnASt0baR4qcmlHjynEuqFiCaFEbi1f";
+
+function fetchGif(query) {
+  const endpoint = `https://api.giphy.com/v1/gifs/search?q=${encodeURIComponent(
+    query
+  )}&api_key=${apiKey}&limit=1`;
+
+  $.ajax({
+    url: endpoint,
+    method: "GET",
+    success: function (response) {
+      const container = document.getElementById("gif-container");
+      container.innerHTML = ""; // Clear previous result
+
+      if (response.data.length > 0) {
+        const embedUrl = response.data[0].embed_url;
+
+        const iframe = document.createElement("iframe");
+        iframe.src = embedUrl;
+        iframe.width = "480";
+        iframe.height = "270";
+        iframe.frameBorder = "0";
+        iframe.allowFullscreen = true;
+
+        container.appendChild(iframe);
+      } else {
+        const msg = document.createElement("p");
+        msg.textContent = "No results found.";
+        container.appendChild(msg);
+      }
+    },
+    error: function () {
+      const container = document.getElementById("gif-container");
+      container.innerHTML = "<p>Error fetching GIF.</p>";
+    },
+  });
+}
+
+$("#go").on("click", function () {
+  const query = $("#search").val().trim();
+  if (query) {
+    fetchGif(query);
+  }
+});
