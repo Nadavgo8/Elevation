@@ -1,48 +1,11 @@
-// import Model from "./model.js";
-// import View from "./view.js";
-
-// const model = new Model();
-// const view = new View();
-
-// async function generatePage() {
-//   try {
-//     const users = await model.getUsers();
-//     const mainUser = users[0];
-//     const friends = users
-//       .slice(1)
-//       .map((user) => `${user.name.first} ${user.name.last}`);
-
-//     view.renderMainUser({
-//       picture: mainUser.picture.large,
-//       name: `${mainUser.name.first} ${mainUser.name.last}`,
-//       location: `${mainUser.location.city}, ${mainUser.location.state}`,
-//     });
-
-//     const qoute = await model.getKanyeQuote();
-//     view.renderQuote(qoute);
-
-//     const pokemon = await model.getPokemon();
-//     view.renderPokemon(pokemon);
-
-//     const aboutText = await model.getText();
-//     view.renderAboutMe(aboutText);
-
-//     view.renderFriends(friends);
-//   } catch (err) {
-//     console.error("Error generating page:", err);
-//   }
-// }
-
-// document.getElementById("generate-btn").addEventListener("click", generatePage);
-
 import Model from "./model.js";
 import View from "./view.js";
 
 const model = new Model();
 const view = new View();
 
-async function generatePage() {
-  // USERS
+// Load main user and friends
+async function loadUserSection() {
   try {
     const users = await model.getUsers();
     if (!users) throw new Error("No users returned");
@@ -64,8 +27,10 @@ async function generatePage() {
     view.renderError("friends-list", "⚠️ Could not load friend list.");
     console.error("User section error:", err);
   }
+}
 
-  // QUOTE
+// Load quote
+async function loadQuoteSection() {
   try {
     const quote = await model.getKanyeQuote();
     if (!quote) throw new Error("No quote returned");
@@ -74,8 +39,10 @@ async function generatePage() {
     view.renderError("quote", "⚠️ Could not load quote.");
     console.error("Quote error:", err);
   }
+}
 
-  // POKEMON
+// Load Pokémon
+async function loadPokemonSection() {
   try {
     const pokemon = await model.getPokemon();
     if (!pokemon) throw new Error("No Pokémon returned");
@@ -84,8 +51,10 @@ async function generatePage() {
     view.renderError("pokemon", "⚠️ Could not load Pokémon.");
     console.error("Pokemon error:", err);
   }
+}
 
-  // ABOUT ME
+// Load About Me
+async function loadAboutMeSection() {
   try {
     const text = await model.getText();
     if (!text) throw new Error("No text returned");
@@ -94,6 +63,14 @@ async function generatePage() {
     view.renderError("about-me", "⚠️ Could not load 'About Me' section.");
     console.error("About Me error:", err);
   }
+}
+
+// Main page generation
+async function generatePage() {
+  await loadUserSection();
+  await loadQuoteSection();
+  await loadPokemonSection();
+  await loadAboutMeSection();
 }
 
 document.getElementById("generate-btn").addEventListener("click", generatePage);
