@@ -6,6 +6,7 @@ export default class model {
       return data.results;
     } catch (error) {
       console.error("Error fetching random users:", error);
+      return null;
     }
   }
 
@@ -16,6 +17,7 @@ export default class model {
       return data.quote;
     } catch (error) {
       console.error("Error fetching qoute:", error);
+      return null;
     }
   }
 
@@ -30,6 +32,7 @@ export default class model {
       };
     } catch (error) {
       console.error("Error fetching random Pokemon:", error);
+      return null;
     }
   }
   async getText() {
@@ -41,6 +44,7 @@ export default class model {
       return data[0];
     } catch (error) {
       console.error("Error fetching text:", error);
+      return null;
     }
   }
 }

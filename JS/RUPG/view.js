@@ -47,4 +47,11 @@ export default class View {
       </ul>
     `;
   }
+  renderError(sectionId, message) {
+    const div = document.getElementById(sectionId);
+    if (div) {
+      div.innerHTML = `<p> ${message}</p>`;
+    }
+  }
 }
+
