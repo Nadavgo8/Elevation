@@ -1,14 +1,8 @@
-export const model = {
-  async getUsers() {
-  },
+export default class model {
+  async getUsers() {}
 
-  async getKanyeQuote() {
-  },
+  async getKanyeQuote() {}
 
-  async getPokemon() {
-  },
-
-  async getText() {
-  },
-
-};
+  async getPokemon() {}
+  async getText() {}
+}
