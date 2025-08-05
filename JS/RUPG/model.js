@@ -19,6 +19,18 @@ export default class model {
     }
   }
 
-  async getPokemon() {}
+  async getPokemon() {
+    try {
+      const id = Math.floor(Math.random() * 1025) + 1;
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      const data = await res.json();
+      return {
+        name: data.name,
+        image: data.sprites.front_default,
+      };
+    } catch (error) {
+      console.error("Error fetching random Pokemon:", error);
+    }
+  }
   async getText() {}
 }

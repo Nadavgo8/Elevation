@@ -20,7 +20,15 @@ export default class View {
       </div>`;
   }
 
-  renderPokemon({ name, image }) {}
+  renderPokemon({ name, image }) {
+    const div = document.getElementById("pokemon");
+    div.innerHTML = `
+    <div>
+      <img src="${image}" alt="${name}"/>
+      <p>Favorite Pokémon:${name}</p>
+    </div>
+  `;
+  }
 
   renderAboutMe(text) {}
 
