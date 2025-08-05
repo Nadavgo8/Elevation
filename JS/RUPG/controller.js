@@ -24,6 +24,9 @@ async function generatePage() {
     const pokemon = await model.getPokemon();
     view.renderPokemon(pokemon);
 
+    const aboutText = await model.getText();
+    view.renderAboutMe(aboutText);
+
     view.renderFriends(friends);
   } catch (err) {
     console.error("Error generating page:", err);

@@ -30,7 +30,13 @@ export default class View {
   `;
   }
 
-  renderAboutMe(text) {}
+  renderAboutMe(text) {
+    const div = document.getElementById("about-me");
+    div.innerHTML = `
+      <div>
+            ${text}
+      </div>`;
+  }
 
   renderFriends(friends) {
     const div = document.getElementById("friends-list");
