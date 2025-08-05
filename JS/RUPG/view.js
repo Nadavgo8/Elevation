@@ -1,5 +1,18 @@
 export default class View {
-  renderMainUser({ picture, name, location }) {}
+  renderMainUser({ picture, name, location }) {
+    // console.log("rendering user...");
+
+    const div = document.getElementById("main-user");
+    div.innerHTML = `
+      <div>
+        <img src="${picture}" alt="User Picture"/>
+        <div>
+          <h2>${name}</h2>
+          <p>${location}</p>
+        </div>
+      </div>
+    `;
+  }
 
   renderQuote(quote) {}
 
@@ -7,5 +20,13 @@ export default class View {
 
   renderAboutMe(text) {}
 
-  renderFriends(friends) {}
+  renderFriends(friends) {
+    const div = document.getElementById("friends-list");
+    div.innerHTML = `
+      <h3>Friends</h3>
+      <ul>
+        ${friends.map((friend) => `<li>${friend}</li>`).join("")}
+      </ul>
+    `;
+  }
 }
