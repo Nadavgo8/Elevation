@@ -1,7 +1,5 @@
 export default class View {
   renderMainUser({ picture, name, location }) {
-    // console.log("rendering user...");
-
     const div = document.getElementById("main-user");
     div.innerHTML = `
       <div>
@@ -14,7 +12,13 @@ export default class View {
     `;
   }
 
-  renderQuote(quote) {}
+  renderQuote(quote) {
+    const div = document.getElementById("quote");
+    div.innerHTML = `
+      <div>
+            ${quote}
+      </div>`;
+  }
 
   renderPokemon({ name, image }) {}
 

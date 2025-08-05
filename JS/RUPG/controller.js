@@ -18,6 +18,8 @@ async function generatePage() {
       name: `${mainUser.name.first} ${mainUser.name.last}`,
       location: `${mainUser.location.city}, ${mainUser.location.state}`,
     });
+    const qoute = await model.getKanyeQuote();
+    view.renderQuote(qoute);
 
     view.renderFriends(friends);
   } catch (err) {
