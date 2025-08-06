@@ -71,6 +71,7 @@ async function generatePage() {
   await loadQuoteSection();
   await loadPokemonSection();
   await loadAboutMeSection();
+  document.getElementById("page-content").classList.remove("hidden");
 }
 
 document.getElementById("generate-btn").addEventListener("click", generatePage);

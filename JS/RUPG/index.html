@@ -1,18 +1,27 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>RUPG</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-  <div id="main-user" class="section"></div>
-  <div id="quote" class="section"></div>
-  <div id="pokemon" class="section"></div>
-  <div id="about-me" class="section"></div>
-  <div id="friends-list" class="section"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random User Page Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container hidden" id="page-content">
+      <div class="user-banner" id="main-user"></div>
+      <div class="main-content">
+        <div class="quote" id="quote"></div>
+        <div class="pokemon" id="pokemon"></div>
+        <div class="about" id="about-me"></div>
+      </div>
+      <div class="friends-panel" id="friends-list"></div>
+    </div>
 
-  <button id="generate-btn">Generate User</button>
+    <div class="button-wrapper">
+      <button class="button" id="generate-btn">Generate User</button>
+    </div>
 
-  <script type="module" src="controller.js"></script>
-</body>
+    <script type="module" src="controller.js"></script>
+  </body>
 </html>
