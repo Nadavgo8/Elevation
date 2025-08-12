@@ -25,7 +25,7 @@ function App() {
         hottest: true,
       },
     ],
-    shouldDiscount: false,
+    shouldDiscount: true,
     currentPage: "Landing",
   });
   const changeToHomePage = () => {
@@ -43,7 +43,10 @@ function App() {
         </>
       ) : (
         <>
-          <Home store={userInfo.store} />
+          <Home
+            store={userInfo.store}
+            shouldDiscount={userInfo.shouldDiscount}
+          />
           <button onClick={changeToLandingPage}>Move to Landing</button>
         </>
       )}
