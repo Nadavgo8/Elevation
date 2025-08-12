@@ -28,11 +28,27 @@ function App() {
     shouldDiscount: false,
     currentPage: "Landing",
   });
-
+  const changeToHomePage = () => {
+    setUserInfo((s) => ({ ...s, currentPage: "Home" }));
+  };
+  const changeToLandingPage = () => {
+    setUserInfo((s) => ({ ...s, currentPage: "Landing" }));
+  };
   return (
     <>
-      <Landing user={userInfo.user} store={userInfo.store} />
-      <Home store={userInfo.store} />
+      {userInfo.currentPage === "Landing" ? (
+        <>
+          <Landing user={userInfo.user} store={userInfo.store} />
+          <button onClick={changeToHomePage}>Move to home</button>
+        </>
+      ) : (
+        <>
+          <Home store={userInfo.store} />
+          <button onClick={changeToLandingPage}>Move to Landing</button>
+        </>
+      )}
+
+      {/*  */}
     </>
   );
 }
