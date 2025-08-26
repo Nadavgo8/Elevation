@@ -27,7 +27,7 @@ async function buyItem() {
   updatedItem.textContent =
     data.inventory === 0
       ? "Item is out of stock!"
-      : `${data.name} purchased! Remaining inventory: ${data.inventory}`;
+      : `Congratulations, you've just bought ${data.name} for ${data.price}. There are ${data.inventory} left now in the store.`;
   console.log(data);
 }
 
