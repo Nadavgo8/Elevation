@@ -3,7 +3,7 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-// app.use(express.static("dist"));
+app.use(express.static("dist"));
 
 const store = [
   { name: "table", inventory: 3, price: 800 },
