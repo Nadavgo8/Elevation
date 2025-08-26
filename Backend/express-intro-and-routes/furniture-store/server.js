@@ -15,11 +15,13 @@ const store = [
 app.get("/", (req, res) => {
   res.send("Server is up and running smoothly");
 });
+
 app.get("/priceCheck/:name", (req, res) => {
   const { name } = req.params;
   const item = store.find((p) => p.name.toLowerCase() === name.toLowerCase());
   res.json({ price: item ? item.price : null });
 });
+
 app.get("/buy/:name", (req, res) => {
   const { name } = req.params;
   const item = store.find((p) => p.name.toLowerCase() === name.toLowerCase());
@@ -32,6 +34,21 @@ app.get("/buy/:name", (req, res) => {
   item.inventory--;
   res.json(item);
 });
+
+app.get("/sale", (req, res) => {
+  const { admin } = req.query;
+
+  if (admin === "true") {
+    for (const item of store) {
+      if (item.inventory > 10) {
+        item.price = Math.round(item.price * 0.5);
+      }
+    }
+  }
+
+  res.send(store);
+});
+
 app.listen(PORT, () => {
   console.log(`Running server on http://localhost:${PORT}`);
 });

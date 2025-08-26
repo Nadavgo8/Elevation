@@ -31,3 +31,11 @@ async function buyItem() {
   console.log(data);
 }
 
+async function runSale() {
+  const out = document.getElementById("updated-item");
+  const res = await fetch("/sale?admin=true");
+  const items = await res.json();
+  out.textContent = items
+    .map((i) => `${i.name}: $${i.price} (inv ${i.inventory})`)
+    .join(" | ");
+}
