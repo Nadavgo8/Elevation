@@ -12,9 +12,13 @@ const store = [
   { name: "picture frame", inventory: 31, price: 70 },
 ];
 
-
-app.get("/", (_req, res) => {
+app.get("/", (req, res) => {
   res.send("Server is up and running smoothly");
+});
+app.get("/priceCheck/:name", (req, res) => {
+  const { name } = req.params;
+  const item = store.find((p) => p.name.toLowerCase() === name.toLowerCase());
+  res.json({ price: item ? item.price : null });
 });
 
 app.listen(PORT, () => {
