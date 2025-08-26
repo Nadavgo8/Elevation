@@ -17,3 +17,17 @@ async function checkPrice() {
     priceResult.textContent = "Error fetching price";
   }
 }
+
+async function buyItem() {
+  const itemInput = document.getElementById("item-input");
+  const updatedItem = document.getElementById("updated-item");
+  const name = itemInput.value.trim();
+  const res = await fetch(`/buy/${encodeURIComponent(name)}`);
+  const data = await res.json();
+  updatedItem.textContent =
+    data.inventory === 0
+      ? "Item is out of stock!"
+      : `${data.name} purchased! Remaining inventory: ${data.inventory}`;
+  console.log(data);
+}
+
