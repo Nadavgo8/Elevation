@@ -37,9 +37,7 @@ app.post("/sentence", (req, res) => {
   }
 
   // normalize + tokenize (words with letters/digits/underscore or apostrophes)
-  const tokens = sentence
-    .toLowerCase()
-    .match(/\b[\w']+\b/g) || [];
+  const tokens = sentence.toLowerCase().match(/[a-z]+/g) || [];
 
 let numNewWords = 0;
 let numOldWords = 0;
