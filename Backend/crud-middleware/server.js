@@ -29,6 +29,40 @@ app.post("/word", (req, res) => {
   res.json({ text: `Added ${word}`, currentCount: count });
 });
 
+// Exercise — POST /sentence
+app.post("/sentence", (req, res) => {
+  const { sentence } = req.body || {};
+  if (typeof sentence !== "string" || !sentence.trim()) {
+    return res.status(400).json({ error: "Provide a non-empty 'sentence' string" });
+  }
+
+  // normalize + tokenize (words with letters/digits/underscore or apostrophes)
+  const tokens = sentence
+    .toLowerCase()
+    .match(/\b[\w']+\b/g) || [];
+
+let numNewWords = 0;
+let numOldWords = 0;
+const seen = {}; // words we've counted for THIS sentence only
+
+for (let i = 0; i < tokens.length; i++) {
+  const w = tokens[i];
+  if (seen[w]) continue; // skip duplicates in the same sentence
+  seen[w] = true;
+  if (w in wordCounter) numOldWords++;
+  else numNewWords++;
+}
+  // now update counts for each occurrence
+  for (const w of tokens) {
+    wordCounter[w] = (wordCounter[w] || 0) + 1;
+  }
+
+  res.json({
+    text: `Added ${numNewWords} words, ${numOldWords} already existed`,
+    currentCount: -1
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Running server on http://localhost:${PORT}`);
 });
