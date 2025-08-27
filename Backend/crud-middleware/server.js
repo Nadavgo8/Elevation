@@ -61,6 +61,19 @@ for (let i = 0; i < tokens.length; i++) {
   });
 });
 
+app.delete("/:word", (req, res) => {
+  const word = req.params.word;
+  if (typeof word !== "string" || !word.trim() || /\s/.test(word)) {
+    return res.status(400).json({ error: "Provide a single word in the URL" });
+  }
+  const key = word.toLowerCase();
+  if (key in wordCounter) {
+    const removedCount = wordCounter[key];
+    delete wordCounter[key]; // <- operator, not a method
+    return res.status(200).json({ text: `Deleted '${key}'`, removedCount });
+  }
+  return res.status(404).json({ error: `Word '${key}' not found` });
+});
 app.listen(PORT, () => {
   console.log(`Running server on http://localhost:${PORT}`);
 });
