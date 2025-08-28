@@ -4,6 +4,7 @@ const PORT = process.env.PORT ? process.env.PORT : 3000;
 const Ajv = require("ajv");
 const ajv = new Ajv();
 
+const postsData = [];
 const postsSchema = {
   type: "object",
   properties: {
@@ -53,9 +54,12 @@ const validateSchema = (schema) => {
   };
 };
 
-
 app.post("/posts", validateSchema(postsSchema), (req, res) => {
+  postsData.push({ ...req.body, id: postsData.length + 1 });
   res.send("created successfully");
+});
+app.get("/posts", (req, res) => {
+  res.send(postsData);
 });
 
 // Error Handling Middleware (always in the END)
