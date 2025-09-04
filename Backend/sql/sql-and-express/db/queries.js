@@ -41,3 +41,24 @@ const sequelize = new Sequelize(process.env.DB_CONNECTION, {
 //   console.log(await findByType("grass")); // ["bulbasaur", "ivysaur", "venusaur", "oddish", ...]
 //   await sequelize.close();
 // })();
+
+//ex4
+
+async function findOwners(pokemonName) {
+  const [rows] = await sequelize.query(
+    `SELECT DISTINCT tr.name AS trainer
+     FROM pokemon p
+     JOIN pokemon_trainer pt ON pt.pokemon_id = p.id
+     JOIN trainer tr        ON tr.id = pt.trainer_id
+     WHERE p.name = ?
+     ORDER BY tr.name`,
+    { replacements: [pokemonName] }
+  );
+  return rows.map((r) => r.trainer); // [] if none
+}
+
+// quick test:
+(async () => {
+  console.log(await findOwners("gengar")); // ["Gary", "Misty", "Plumeria", "Wallace"] (order by name)
+  await sequelize.close();
+})();
