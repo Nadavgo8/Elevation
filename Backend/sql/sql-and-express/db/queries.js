@@ -8,7 +8,7 @@ const sequelize = new Sequelize(process.env.DB_CONNECTION, {
 });
 
 
-//ex1
+//ex2
 // async function heaviestPokemon() {
 //   const [rows] = await sequelize.query(`
 //     SELECT *
@@ -23,21 +23,21 @@ const sequelize = new Sequelize(process.env.DB_CONNECTION, {
 //   await sequelize.close();
 // })();
 
-//ex2
-async function findByType(typeName) {
-  const [rows] = await sequelize.query(
-    `SELECT p.name
-     FROM pokemon AS p
-     JOIN pokemon_type AS t ON t.id = p.type_id
-     WHERE t.name = ?
-     ORDER BY p.id`,
-    { replacements: [typeName] }
-  );
-  return rows.map((r) => r.name);
-}
+//ex3
+// async function findByType(typeName) {
+//   const [rows] = await sequelize.query(
+//     `SELECT p.name
+//      FROM pokemon AS p
+//      JOIN pokemon_type AS t ON t.id = p.type_id
+//      WHERE t.name = ?
+//      ORDER BY p.id`,
+//     { replacements: [typeName] }
+//   );
+//   return rows.map((r) => r.name);
+// }
 
-// quick test:
-(async () => {
-  console.log(await findByType("grass")); // ["bulbasaur", "ivysaur", "venusaur", "oddish", ...]
-  await sequelize.close();
-})();
+// // quick test:
+// (async () => {
+//   console.log(await findByType("grass")); // ["bulbasaur", "ivysaur", "venusaur", "oddish", ...]
+//   await sequelize.close();
+// })();
