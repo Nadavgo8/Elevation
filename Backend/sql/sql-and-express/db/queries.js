@@ -7,7 +7,6 @@ const sequelize = new Sequelize(process.env.DB_CONNECTION, {
   logging: false,
 });
 
-
 //ex2
 // async function heaviestPokemon() {
 //   const [rows] = await sequelize.query(`
@@ -43,22 +42,38 @@ const sequelize = new Sequelize(process.env.DB_CONNECTION, {
 // })();
 
 //ex4
+// async function findOwners(pokemonName) {
+//   const [rows] = await sequelize.query(
+//     `SELECT DISTINCT tr.name AS trainer
+//      FROM pokemon p
+//      JOIN pokemon_trainer pt ON pt.pokemon_id = p.id
+//      JOIN trainer tr        ON tr.id = pt.trainer_id
+//      WHERE p.name = ?
+//      ORDER BY tr.name`,
+//     { replacements: [pokemonName] }
+//   );
+//   return rows.map((r) => r.trainer); // [] if none
+// }
 
-async function findOwners(pokemonName) {
+// // quick test:
+// (async () => {
+//   console.log(await findOwners("gengar")); // ["Gary", "Misty", "Plumeria", "Wallace"] (order by name)
+//   await sequelize.close();
+// })();
+
+//ex5
+async function findRoster(trainerName) {
   const [rows] = await sequelize.query(
-    `SELECT DISTINCT tr.name AS trainer
-     FROM pokemon p
-     JOIN pokemon_trainer pt ON pt.pokemon_id = p.id
-     JOIN trainer tr        ON tr.id = pt.trainer_id
-     WHERE p.name = ?
-     ORDER BY tr.name`,
-    { replacements: [pokemonName] }
+    `SELECT p.name
+     FROM trainer tr
+     JOIN pokemon_trainer pt ON pt.trainer_id = tr.id
+     JOIN pokemon p         ON p.id = pt.pokemon_id
+     WHERE tr.name = ?
+     ORDER BY p.id`,
+    { replacements: [trainerName] }
   );
-  return rows.map((r) => r.trainer); // [] if none
+  return rows.map(r => r.name); // e.g., ["metapod", "raticate", ...]
 }
 
-// quick test:
-(async () => {
-  console.log(await findOwners("gengar")); // ["Gary", "Misty", "Plumeria", "Wallace"] (order by name)
-  await sequelize.close();
-})();
+// quick check:
+(async () => { console.log(await findRoster('Loga')); await sequelize.close(); })();
